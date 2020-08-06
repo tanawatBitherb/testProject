@@ -15,7 +15,6 @@ def login_view(request):
             user = form.get_user()
             login(request, user)
             return render(request,"homepage.html",{"user":user})
-
     else:
         form = AuthenticationForm()
     return render(request, "login.html", {'form': form})
@@ -23,7 +22,9 @@ def login_view(request):
 def logout_view(request):
     if request.method == 'POST':
         logout(request)
-        return redirect('posts:list')
+        return redirect("/")
+
+
 
 def register_view(request):
     form = UserCreationForm(request.POST)
@@ -41,3 +42,4 @@ def register_view(request):
 
 def homepage(request):
     return render(request,"homepage.html")
+
