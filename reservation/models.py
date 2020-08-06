@@ -2,7 +2,6 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.contrib.auth.models import AbstractUser
 from django.utils.translation import ugettext_lazy as _
-# from .managers import CustomUserManager
 
 class Product(models.Model):
     id = models.IntegerField(primary_key=True)
@@ -10,6 +9,9 @@ class Product(models.Model):
     datail = models.CharField(max_length=100)
     price = models.CharField(max_length=50)
     color = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.id
 
 
 
