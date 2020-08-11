@@ -4,7 +4,7 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login, logout
 from django.contrib import messages
 from django.views.decorators.csrf import csrf_exempt
-
+from .models import Product
 
 # Create your views here.
 def index(request):
@@ -38,9 +38,9 @@ def register_view(request):
     form = UserCreationForm(request.POST)
     if form.is_valid():
         form.save()
-        user = form.save()
-        login(request, user)
-        return render(request,"index.html")
+        # user = form.save()
+        # login(request, user)
+        return render(request,"index.html") 
     else:
         form = UserCreationForm()
 
